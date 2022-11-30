@@ -4,7 +4,9 @@ import './GameInfo.css';
 const GameInfo = () => {
     return (
         <>
-            GameInfo
+            <div className='gameinfo'>
+                gameinfo
+            </div>
         </>
     )
 }

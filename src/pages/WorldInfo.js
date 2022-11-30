@@ -4,7 +4,9 @@ import './WorldInfo.css';
 const WorldInfo = () => {
     return (
         <>
-            WorldInfo
+            <div className='worldinfo'>
+                WorldInfo
+            </div>
         </>
     )
 }

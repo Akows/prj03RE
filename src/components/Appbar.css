@@ -13,16 +13,19 @@
     position: fixed;
     top: 0;
     left: 0;
+
+    z-index: 999;
 }
 
 .appbarlogo {
     width: 250px;
     height: 100%;
+
+    background-image: url('../styles/genshinimpectlogo(white).png');
+    background-size: 145px 85px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
-    .appbarlogo > button {
-        width: 100%;
-        height: 100%;
-    }
 
 .appbarmenu {
     width: calc(100% - 250px);
@@ -31,23 +34,24 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
 }
-    .appbarmenu > button {
+    .appbarmenu > a > button {
         width: 120px;
-        height: 100%;
+        height: 70px;
+
+        border: 0;
+        margin-left: 5px;
+        border-radius: 30px;
     }
 
 .appbarmenusmall {
     display: none;
 }
-    .appbarmenusmall > button {
-        width: 120px;
-        height: 100%;
-    }
 
 @media screen and (max-width: 800px) {
     .appbarlogo {
-        width: 200px;
+        width: 250px;
     }
 
     .appbarmenu {
@@ -55,11 +59,12 @@
     }
 
     .appbarmenusmall {
-        width: calc(100% - 200px);
+        width: calc(100% - 250px);
         height: 100%;
     
         display: flex;
         flex-direction: row;
         justify-content: right;
     }
+
 }

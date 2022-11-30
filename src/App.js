@@ -1,5 +1,5 @@
-import './App.css';
 import './ResetStyle.css';
+import './App.css';
 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 

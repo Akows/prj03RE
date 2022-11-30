@@ -1,23 +1,40 @@
 import '../ResetStyle.css';
 import './Appbar.css';
 
+import { Link } from 'react-router-dom';
+
 const Appbar = () => {
     return (
         <>
             <header className='appbar'>
 
-                <div className='appbarlogo'>
-                    <button>logo</button>
-                </div>
+            <Link to='/'>
+                <div className='appbarlogo'/>
+            </Link>
 
                 <div className='appbarmenu'>
-                    <button>menu1</button>
-                    <button>menu2</button>
-                    <button>menu3</button>
+
+                    <Link to='/forum'>
+                        <button>
+                        Forum
+                        </button>
+                    </Link> 
+
+                    <Link to='/gameinfo'>
+                        <button>
+                        gameinfo
+                        </button>
+                    </Link> 
+
+                    <Link to='/worldinfo'>
+                        <button>
+                        worldinfo
+                        </button>
+                    </Link> 
                 </div>
 
                 <div className='appbarmenusmall'>
-                    <button>menu</button>
+
                 </div>
                 
             </header>

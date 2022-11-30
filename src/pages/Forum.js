@@ -4,7 +4,9 @@ import './Forum.css';
 const Forum = () => {
     return (
         <>
-            Forum
+            <div className='forum'>
+                Forum
+            </div>
         </>
     )
 }
