@@ -1,7 +1,12 @@
+import '../ResetStyle.css';
+import './Home.css';
+
 const Home = () => {
     return (
         <>
-            Home
+            <div className='home'>
+                Home
+            </div>
         </>
     )
 }

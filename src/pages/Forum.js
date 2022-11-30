@@ -1,3 +1,6 @@
+import '../ResetStyle.css';
+import './Forum.css';
+
 const Forum = () => {
     return (
         <>

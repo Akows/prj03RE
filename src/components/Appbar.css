@@ -1,0 +1,65 @@
+.appbar {
+    width: 100%;
+    height: 80px;
+
+    background-color: black;
+
+    opacity: 0.8;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.appbarlogo {
+    width: 250px;
+    height: 100%;
+}
+    .appbarlogo > button {
+        width: 100%;
+        height: 100%;
+    }
+
+.appbarmenu {
+    width: calc(100% - 250px);
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+    .appbarmenu > button {
+        width: 120px;
+        height: 100%;
+    }
+
+.appbarmenusmall {
+    display: none;
+}
+    .appbarmenusmall > button {
+        width: 120px;
+        height: 100%;
+    }
+
+@media screen and (max-width: 800px) {
+    .appbarlogo {
+        width: 200px;
+    }
+
+    .appbarmenu {
+        display: none;
+    }
+
+    .appbarmenusmall {
+        width: calc(100% - 200px);
+        height: 100%;
+    
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+    }
+}
