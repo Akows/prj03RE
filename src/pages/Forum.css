@@ -7,4 +7,21 @@
     background-image: url('../styles/TravelerCelestial.jpg');
     background-size: cover;
     background-position: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.forumform {
+    width: 80%;
+    height: 80%;
+
+    background-color: white;
+    border-radius: 60px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

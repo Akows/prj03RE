@@ -49,6 +49,52 @@
     display: none;
 }
 
+.slidemenu > li { 
+    width: 120px;
+    height: 80px;
+    
+    padding: 5px;
+
+    display: inline-block; 
+
+    background: #eee; 
+
+    text-align: center; 
+
+    position: relative; 
+}
+
+.slidemenu > li:hover { 
+    background:#fff; 
+}
+
+.slidemenu > li .submenu { 
+    display: none; 
+}
+
+.slidemenu > li:hover .submenu { 
+    display: block; 
+
+    position: absolute; 
+    
+    margin-top: 60px;
+
+    right: 0; 
+}
+
+.slidemenu > li .submenu > a > li { 
+    display: inline-block; 
+    width: 120px; 
+    padding: 15px; 
+    background: #eee; 
+    border: 1px solid #eee; 
+    text-align: center; 
+}
+
+.slidemenu > li .submenu > a > li:hover { 
+    background:#fff; 
+}
+
 @media screen and (max-width: 800px) {
     .appbarlogo {
         width: 250px;

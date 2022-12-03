@@ -5,7 +5,17 @@ const Forum = () => {
     return (
         <>
             <div className='forum'>
-                Forum
+
+                <div className='forumform'>
+                    <h1>Forum</h1>
+
+                    <div>
+
+                    </div>
+
+
+                </div>
+
             </div>
         </>
     )

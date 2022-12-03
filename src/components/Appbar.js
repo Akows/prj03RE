@@ -34,7 +34,28 @@ const Appbar = () => {
                 </div>
 
                 <div className='appbarmenusmall'>
-
+                    <ul class="slidemenu">
+                        <li>
+                            메뉴 이름
+                            <ul class="submenu">
+                                <Link to='/forum'>
+                                    <li>
+                                    Forum
+                                    </li>
+                                </Link> 
+                                <Link to='/gameinfo'>
+                                    <li>
+                                    gameinfo
+                                    </li>
+                                </Link> 
+                                <Link to='/worldinfo'>
+                                    <li>
+                                    worldinfo
+                                    </li>
+                                </Link> 
+                            </ul>   
+                        </li>
+                    </ul>
                 </div>
                 
             </header>
