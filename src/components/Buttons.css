@@ -26,3 +26,16 @@
     color: white;
     background-color: black;
 }
+
+.linkbutton_write {
+    color: black;
+    background-color: forestgreen;
+}
+.linkbutton_write:hover {
+    color: black;
+    background-color: gray;
+}
+.linkbutton_write:active {
+    color: white;
+    background-color: black;
+}

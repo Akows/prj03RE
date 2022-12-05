@@ -1,12 +1,12 @@
 import './Buttons.css';
 
-const Buttons = ( { text, type } ) => {
+const Buttons = ( { text, type, onClick } ) => {
 
-    const buttonType =  ['positive', 'negative'].includes(type) ? type : 'default';
+    const buttonType =  ['write', 'negative'].includes(type) ? type : 'default';
 
     return (
         <>
-            <div className={[ 'linkbutton', `linkbutton_${buttonType}`].join(' ') }>
+            <div className={[ 'linkbutton', `linkbutton_${buttonType}`].join(' ') } onClick={onClick}>
                 {text}
             </div>
         </>
