@@ -1,6 +1,8 @@
 import '../ResetStyle.css';
 import './Appbar.css';
 
+import Buttons from './Buttons';
+
 import { Link } from 'react-router-dom';
 
 const Appbar = () => {
@@ -15,21 +17,15 @@ const Appbar = () => {
                 <div className='appbarmenu'>
 
                     <Link to='/forum'>
-                        <button>
-                        Forum
-                        </button>
+                        <Buttons text={'자유게시판'}/>
                     </Link> 
 
                     <Link to='/gameinfo'>
-                        <button>
-                        gameinfo
-                        </button>
+                        <Buttons text={'원신'}/>
                     </Link> 
 
                     <Link to='/worldinfo'>
-                        <button>
-                        worldinfo
-                        </button>
+                        <Buttons text={'티바트'}/>
                     </Link> 
                 </div>
 

@@ -1,0 +1,28 @@
+.linkbutton {
+    width: 120px;
+    height: 60px;
+
+    border-radius: 20px;
+
+    margin: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.linkbutton_default {
+    color: black;
+    background-color: white;
+}
+.linkbutton_default:hover {
+    color: black;
+    background-color: gray;
+}
+.linkbutton_default:active {
+    color: white;
+    background-color: black;
+}
