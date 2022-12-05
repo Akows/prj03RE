@@ -22,7 +22,7 @@ const reducer = (state, action) => {
       return action.data;
     }
     case "CREATE": {
-      newState = [action.data, ...state];
+      newState = [...state, action.data];
       break;
     }
     default:
@@ -41,13 +41,13 @@ function App() {
     const localData = localStorage.getItem('forumdata');
 
     if (localData) {
-      const diaryList = JSON.parse(localData).sort(
+      const forumList = JSON.parse(localData).sort(
         (a, b) => parseInt(a.id) - parseInt(b.id)
       );
 
-      if (diaryList.length >= 1) {
-        forumId.current = parseInt(diaryList[0].id) + 1;
-        dispatch({ type: 'INIT', data: diaryList });
+      if (forumList.length >= 1) {
+        forumId.current = parseInt(forumList[forumList.length - 1].id) + 1;
+        dispatch({ type: 'INIT', data: forumList });
       }
     }
   }, []);

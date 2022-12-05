@@ -33,7 +33,7 @@ const ForumEdit = () => {
           } 
         }
     
-        navigate("/", { replace: true });
+        navigate('/forum', { replace: true });
       };
 
       useEffect(() => {
