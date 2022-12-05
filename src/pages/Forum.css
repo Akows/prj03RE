@@ -134,3 +134,41 @@
     border: 1px solid black;
     border-radius: 30px;
 }
+
+
+@media screen and (max-width: 500px) {
+    .forumform {
+        width: 100%;
+        height: 100%;
+
+        border-radius: 20px;
+    }
+    .listtitle {
+        display: none;
+    }
+
+    .listitem {
+        width: 100%;
+        height: 60px;
+
+        margin-top: 10px;
+
+        border: 1px solid black;
+        border-radius: 10px;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: left;
+    }
+    .listitem > span {
+        width: 150px;
+
+        font-size: 20px;
+
+        text-align: center;
+    }
+    .listitem > span:nth-child(2) {
+        width: 570px;
+    }
+}

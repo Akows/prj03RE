@@ -59,7 +59,7 @@ function App() {
       type: "CREATE",
       data: {
         id: forumId.current,
-        date: new Date().getTime(),
+        date: new Date().toLocaleString('ko-kr'),
         titleData,
         maintextData,
       },
