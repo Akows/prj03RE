@@ -11,17 +11,26 @@ import ForumEdit from './pages/ForumEdit';
 import GameInfo from './pages/GameInfo';
 import WorldInfo from './pages/WorldInfo';
 
-export const ForumStateContext = React.createContext();
+export const ForumDataContext = React.createContext();
 export const ForumFunctionContext = React.createContext();
 
 const reducer = (state, action) => {
+  let newState = [];
+
   switch (action.type) {
     case 'INIT': {
       return action.data;
     }
+    case "CREATE": {
+      newState = [action.data, ...state];
+      break;
+    }
     default:
       return state;
   }
+
+  localStorage.setItem('forumdata', JSON.stringify(newState));
+  return newState;
 };
 
 function App() {
@@ -33,34 +42,34 @@ function App() {
 
     if (localData) {
       const diaryList = JSON.parse(localData).sort(
-        (a, b) => parseInt(b.id) - parseInt(a.id)
+        (a, b) => parseInt(a.id) - parseInt(b.id)
       );
 
       if (diaryList.length >= 1) {
-        dataId.current = parseInt(diaryList[0].id) + 1;
+        forumId.current = parseInt(diaryList[0].id) + 1;
         dispatch({ type: 'INIT', data: diaryList });
       }
     }
   }, []);
 
-  const dataId = useRef(0);
+  const forumId = useRef(0);
 
-  const onCreate = (date, content, emotion) => {
+  const onCreate = (titleData, maintextData) => {
     dispatch({
       type: "CREATE",
       data: {
-        id: dataId.current,
-        date: new Date(date).getTime(),
-        content,
-        emotion,
+        id: forumId.current,
+        date: new Date().getTime(),
+        titleData,
+        maintextData,
       },
     });
-    dataId.current += 1;
+    forumId.current += 1;
   };
 
 
   return (
-    <ForumStateContext.Provider value={data}>
+    <ForumDataContext.Provider value={data}>
       <ForumFunctionContext.Provider value={{ onCreate }}>
 
         <BrowserRouter>
@@ -81,7 +90,7 @@ function App() {
       </BrowserRouter>
 
       </ForumFunctionContext.Provider>
-    </ForumStateContext.Provider>
+    </ForumDataContext.Provider>
   );
 }
 

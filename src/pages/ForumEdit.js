@@ -1,4 +1,4 @@
-import { useContext, useRef, useState } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { ForumFunctionContext } from '../App';
 
@@ -25,7 +25,7 @@ const ForumEdit = () => {
     
         if (
           window.confirm(
-            isEdit ? "일기를 수정하시겠습니까?" : "새로운 일기를 작성하시겠습니까?"
+            isEdit ? '글을 수정할까요?' : '글을 작성할까요?'
           )
         ) {
           if (!isEdit) {
@@ -36,6 +36,11 @@ const ForumEdit = () => {
         navigate("/", { replace: true });
       };
 
+      useEffect(() => {
+        const titleElement = document.getElementsByTagName("title")[0];
+        titleElement.innerHTML = '글 작성/수정';
+      }, []);
+
     return (
         <>
             <div className='edit'>
@@ -43,8 +48,7 @@ const ForumEdit = () => {
                 <div className='editform'>
                     <div className='editlist'>
 
-                        <div className='listtitle'>
-                            <span>제목</span>
+                        <div className='edittitle'>
                             <textarea
                                 placeholder='제목을 입력해주세요'
                                 ref={contentRef}
@@ -54,8 +58,7 @@ const ForumEdit = () => {
                         </div>
 
 
-                        <div className='listitem'>
-                            <span>내용</span>
+                        <div className='edittext'>
                             <textarea
                                 placeholder='내용을 입력해주세요'
                                 ref={contentRef}
@@ -69,10 +72,7 @@ const ForumEdit = () => {
 
                     <div className='editbutton'>
 
-                        <div className='pagenation'>
-
-                        </div>
-                        <div className='utilbutton'>
+                        <div className='submitbutton'>
                             <Buttons text={'완료'} type={'write'} onClick={submitEvent}/>
                         </div>
 
