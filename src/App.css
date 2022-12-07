@@ -28,3 +28,10 @@ a {
     text-decoration: none;
 	text-decoration-line : none;
 }
+
+@font-face {
+    font-family: 'genshinfont';
+    src: url('./styles/genshinfont.ttf') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

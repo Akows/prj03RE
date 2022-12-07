@@ -12,6 +12,8 @@ const Forum = () => {
 
     const forumList = useContext(ForumDataContext);
 
+    const id = 0;
+
     useEffect(() => {
         const titleElement = document.getElementsByTagName("title")[0];
         titleElement.innerHTML = '자유게시판';
@@ -34,7 +36,11 @@ const Forum = () => {
                         {forumList.map((item) => (
                             <div className='listitem' key={item.id}>
                                 <span>{item.id}</span>
-                                <span>{item.titleData}</span>
+                                <span>
+                                    <div onClick={() => navigate(`/forumitem/${item.id}`)}>
+                                        {item.titleData}
+                                    </div>
+                                </span>
                                 <span>익명사용자</span>
                                 <span>{item.date}</span>
                             </div>
@@ -48,9 +54,8 @@ const Forum = () => {
 
                         </div>
                         <div className='utilbutton'>
-                            <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate('/forumedit')}/>
+                            <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate(`/forumedit/${id}`)}/>
                         </div>
-
 
                     </div>
 

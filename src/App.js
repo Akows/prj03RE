@@ -10,6 +10,7 @@ import Forum from './pages/Forum';
 import ForumEdit from './pages/ForumEdit';
 import GameInfo from './pages/GameInfo';
 import WorldInfo from './pages/WorldInfo';
+import ForumItem from './pages/ForumItem';
 
 export const ForumDataContext = React.createContext();
 export const ForumFunctionContext = React.createContext();
@@ -23,6 +24,12 @@ const reducer = (state, action) => {
     }
     case "CREATE": {
       newState = [...state, action.data];
+      break;
+    }
+    case "EDIT": {
+      newState = state.map((it) =>
+        it.id === action.data.id ? { ...action.data } : it
+      );
       break;
     }
     default:
@@ -52,7 +59,7 @@ function App() {
     }
   }, []);
 
-  const forumId = useRef(0);
+  const forumId = useRef(1);
 
   const onCreate = (titleData, maintextData) => {
     dispatch({
@@ -67,10 +74,21 @@ function App() {
     forumId.current += 1;
   };
 
+  const onEdit = (targetId, titleData, maintextData) => {
+    dispatch({
+      type: "EDIT",
+      data: {
+        id: targetId,
+        date: new Date().toLocaleString('ko-kr'),
+        titleData,
+        maintextData,
+      },
+    });
+  };
 
   return (
     <ForumDataContext.Provider value={data}>
-      <ForumFunctionContext.Provider value={{ onCreate }}>
+      <ForumFunctionContext.Provider value={{ onCreate, onEdit }}>
 
         <BrowserRouter>
         <div className='App'>
@@ -81,7 +99,8 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/forum' element={<Forum />} />
-              <Route path='/forumedit' element={<ForumEdit />} />
+              <Route path='/forumitem/:id' element={<ForumItem />} />
+              <Route path='/forumedit/:id' element={<ForumEdit />} />
               <Route path='/gameinfo' element={<GameInfo />} />
               <Route path='/worldinfo' element={<WorldInfo />} />
             </Routes>   

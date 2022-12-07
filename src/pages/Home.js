@@ -9,7 +9,11 @@ const Home = () => {
             </div>
 
             <div className='text'>
-                <p>home</p>
+                <p>메인화면 텍스트</p>
+                <p>메인화면 텍스트</p>
+                <p>메인화면 텍스트</p>
+                <p>메인화면 텍스트</p>
+                <p>메인화면 텍스트</p>
             </div>
         </>
     )
