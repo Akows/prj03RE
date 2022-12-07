@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ForumDataContext } from '../App';
+import { ForumDataContext, ForumFunctionContext } from '../App';
 import Buttons from '../components/Buttons';
 import '../ResetStyle.css';
 import './ForumItem.css';
@@ -12,7 +12,15 @@ const ForumItem = () => {
 
     const [data, setData] = useState([]);
 
+    const { onRemove } = useContext(ForumFunctionContext);
     const forumdata = useContext(ForumDataContext);
+
+    const handleRemove = () => {
+        if (window.confirm("정말 삭제하시겠습니까?")) {
+          onRemove(id);
+          navigate("/", { replace: true });
+        }
+      };
 
     useEffect(() => {
         const titleElement = document.getElementsByTagName("title")[0]; 
@@ -61,6 +69,8 @@ const ForumItem = () => {
 
                         <div className='itembtu'>
                             <Buttons text={'수정하기'} type={'update'} onClick={() => navigate(`/forumedit/${id}`)}/>
+
+                            <Buttons text={'삭제하기'} type={'delete'} onClick={handleRemove}/>
                         </div>
 
                     </div>

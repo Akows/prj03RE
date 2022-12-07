@@ -41,3 +41,29 @@
     color: white;
     background-color: black;
 }
+
+.linkbutton_update {
+    color: black;
+    background-color: yellow;
+}
+.linkbutton_update:hover {
+    color: black;
+    background-color: gray;
+}
+.linkbutton_update:active {
+    color: white;
+    background-color: black;
+}
+
+.linkbutton_delete {
+    color: black;
+    background-color: red;
+}
+.linkbutton_delete:hover {
+    color: black;
+    background-color: gray;
+}
+.linkbutton_delete:active {
+    color: white;
+    background-color: black;
+}

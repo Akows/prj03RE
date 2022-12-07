@@ -36,7 +36,8 @@ const ForumEdit = () => {
           alert('작성되었습니다.');
         }
         else {
-          onEdit(titleData, maintextData);
+          onEdit(id, titleData, maintextData);
+          alert('수정되었습니다.');
         } 
       }
       navigate('/forum', { replace: true });
