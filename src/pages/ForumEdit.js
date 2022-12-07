@@ -17,7 +17,7 @@ const ForumEdit = () => {
     const [titleData, setTitleData] = useState('');
     const [maintextData, setMaintextData] = useState('');
 
-    const { onCreate, onEdit } = useContext(ForumFunctionContext);
+    const { onCreate, onUpdate } = useContext(ForumFunctionContext);
     const forumdata = useContext(ForumDataContext);
 
     const submitEvent = () => {
@@ -36,7 +36,7 @@ const ForumEdit = () => {
           alert('작성되었습니다.');
         }
         else {
-          onEdit(id, titleData, maintextData);
+          onUpdate(id, titleData, maintextData);
           alert('수정되었습니다.');
         } 
       }

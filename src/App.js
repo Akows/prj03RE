@@ -26,14 +26,19 @@ const reducer = (state, action) => {
       newState = [...state, action.data];
       break;
     }
-    case 'EDIT': {
-      newState = state.map((it) =>
-        it.id === action.data.id ? { ...action.data } : it
-      );
+    case 'UPDATE': {
+      newState = state.map((it) => it.id === action.data.id ? { ...action.data } : it);
       break;
     }
-    case 'REMOVE': {
-      newState = state.filter((it) => it.id !== action.id);
+    case 'DELETE': {
+
+      console.log(state);
+
+      console.log(state[0].id);
+      console.log(action.id);
+
+      newState = state.filter((item) => item.id !== action.id);
+
       break;
     }
     default:
@@ -78,9 +83,9 @@ function App() {
     forumId.current += 1;
   };
 
-  const onEdit = (targetId, titleData, maintextData) => {
+  const onUpdate = (targetId, titleData, maintextData) => {
     dispatch({
-      type: 'EDIT',
+      type: 'UPDATE',
       data: {
         id: targetId,
         date: new Date().toLocaleString('ko-kr'),
@@ -90,13 +95,16 @@ function App() {
     });
   };
 
-  const onRemove = (targetId) => {
-    dispatch({ type: 'REMOVE', id: targetId });
+  const onDelete = (targetId) => {
+    dispatch({ 
+      type: 'DELETE', 
+      id: targetId 
+    });
   };
 
   return (
     <ForumDataContext.Provider value={data}>
-      <ForumFunctionContext.Provider value={{ onCreate, onEdit, onRemove }}>
+      <ForumFunctionContext.Provider value={{ onCreate, onUpdate, onDelete }}>
 
         <BrowserRouter>
         <div className='App'>

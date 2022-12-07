@@ -12,18 +12,19 @@ const ForumItem = () => {
 
     const [data, setData] = useState([]);
 
-    const { onRemove } = useContext(ForumFunctionContext);
+    const { onDelete } = useContext(ForumFunctionContext);
     const forumdata = useContext(ForumDataContext);
 
     const handleRemove = () => {
-        if (window.confirm("정말 삭제하시겠습니까?")) {
-          onRemove(id);
-          navigate("/", { replace: true });
+        if (window.confirm('정말 삭제하시겠습니까?')) {
+            onDelete(id);
+            alert('삭제되었습니다.');
+            navigate('/forum', { replace: true });
         }
       };
 
     useEffect(() => {
-        const titleElement = document.getElementsByTagName("title")[0]; 
+        const titleElement = document.getElementsByTagName('title')[0]; 
         titleElement.innerHTML = `${id}번 글`; // eslint-disable-next-line
       }, []);
 
