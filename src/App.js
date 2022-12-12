@@ -37,6 +37,10 @@ const reducer = (state, action) => {
       newState = state.filter((item) => parseInt(item.dataId) !== parseInt(action.dataId));
       break;
     }
+    case 'SEARCH': {
+      return state.filter();
+    }
+
     default:
       return state;
   }
@@ -75,7 +79,7 @@ function App() {
         itemType: itemType,
         authorName: '익명사용자',
         titleData: titleData,
-        textData: textData,
+        textData: textData
       },
     });
     forumId.current += 1;
@@ -90,7 +94,7 @@ function App() {
         itemType: itemType,
         authorName: '익명사용자',
         titleData: titleData,
-        textData: textData,
+        textData: textData
       },
     });
   };
@@ -102,9 +106,17 @@ function App() {
     });
   };
 
+  const onSearch = (searchType, searchInput) => {
+    dispatch({ 
+      type: 'SEARCH', 
+      searchType: searchType,
+      searchInput: searchInput
+    });
+  };
+
   return (
     <ForumDataContext.Provider value={data}>
-      <ForumFunctionContext.Provider value={{ onCreate, onUpdate, onDelete }}>
+      <ForumFunctionContext.Provider value={{ onCreate, onUpdate, onDelete, onSearch }}>
         <BrowserRouter>
           <div className='App'>
             <div className='appbarcomponents'>

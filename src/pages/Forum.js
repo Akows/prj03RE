@@ -3,7 +3,7 @@ import './Forum.css';
 
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ForumDataContext } from '../App';
+import { ForumDataContext, ForumFunctionContext } from '../App';
 
 import Buttons from '../components/Buttons';
 import Pagination from '../components/pagination';
@@ -13,8 +13,12 @@ const Forum = () => {
     const navigate = useNavigate();
 
     const forumList = useContext(ForumDataContext);
+    const { onSearch } = useContext(ForumFunctionContext);
 
     const dataId = 0;
+
+    const [searchType, setSearchType] = useState('종류');
+    const [searchInput, setSearchInput] = useState('');
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemPerPage] = useState(10);
@@ -29,6 +33,10 @@ const Forum = () => {
         const titleElement = document.getElementsByTagName('title')[0];
         titleElement.innerHTML = '자유게시판';
     }, []);
+
+    const handleSearch = () => {
+        onSearch(searchType, searchInput);
+    };
 
     return (
         <>
@@ -60,7 +68,18 @@ const Forum = () => {
                                 postsPerPage={itemPerPage}
                                 totalPosts={forumList.length}
                                 paginate={paginate}
-                                />
+                            />
+
+                            <div className='forumsearch'>
+                                <select className='searchtype'onChange={(e) => setSearchType(e.target.value)}>
+                                    <option value='type'>종류</option>
+                                    <option value='title'>제목</option>
+                                </select>
+                                <input className='searchinput' onChange={(e) => setSearchInput(e.target.value)}/>
+                                <button className='searchbutton' onClick={handleSearch}>
+                                    검색
+                                </button>
+                            </div>
                         </div>
                         <div className='utilbutton'>
                             <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate(`/forumedit/${dataId}`)}/>
