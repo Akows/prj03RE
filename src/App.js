@@ -12,6 +12,8 @@ import GameInfo from './pages/GameInfo';
 import WorldInfo from './pages/WorldInfo';
 import ForumItem from './pages/ForumItem';
 
+import { timeData } from './functions/Dates';
+
 export const ForumDataContext = React.createContext();
 export const ForumFunctionContext = React.createContext();
 
@@ -47,6 +49,8 @@ function App() {
   const [data, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
+    console.log(timeData());
+
     const localData = localStorage.getItem('forumdata');
 
     if (localData) {
