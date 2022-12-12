@@ -10,7 +10,7 @@ import Buttons from '../components/Buttons';
 const ForumItem = () => {
 
     const navigate = useNavigate();
-    const { id } = useParams();
+    const { dataId } = useParams();
 
     const [data, setData] = useState([]);
 
@@ -19,7 +19,7 @@ const ForumItem = () => {
 
     const handleRemove = () => {
         if (window.confirm('정말 삭제하시겠습니까?')) {
-            onDelete(id);
+            onDelete(dataId);
             alert('삭제되었습니다.');
             navigate('/forum', { replace: true });
         }
@@ -27,13 +27,13 @@ const ForumItem = () => {
 
     useEffect(() => {
         const titleElement = document.getElementsByTagName('title')[0]; 
-        titleElement.innerHTML = `${id}번 글`; // eslint-disable-next-line
+        titleElement.innerHTML = `${dataId}번 글`; // eslint-disable-next-line
       }, []);
 
     useEffect(() => {
         if (forumdata.length >= 1) {
             const targetData  = forumdata.find(
-                (it) => parseInt(it.id) === parseInt(id)
+                (item) => parseInt(item.dataId) === parseInt(dataId)
             );
 
             if (targetData) {
@@ -44,7 +44,7 @@ const ForumItem = () => {
                 navigate('/forum', { replace: true });
             }
         } // eslint-disable-next-line
-    }, [id, forumdata]);
+    }, [dataId, forumdata]);
 
     return (
         <>
@@ -53,16 +53,19 @@ const ForumItem = () => {
                 <div className='itemform'>
                     <div className='itemlist'>
 
+                        <div className='itemtype'>
+                            {data.itemType}
+                        </div>
+
                         <div className='itemtitle'>
                             <div>
                                 {data.titleData}
                             </div>
                         </div>
 
-
                         <div className='itemtext'>
                             <div>
-                                {data.maintextData}
+                                {data.textData}
                             </div>
                         </div>
 
@@ -71,7 +74,7 @@ const ForumItem = () => {
                     <div className='itembutton'>
 
                         <div className='itembtu'>
-                            <Buttons text={'수정하기'} type={'update'} onClick={() => navigate(`/forumedit/${id}`)}/>
+                            <Buttons text={'수정하기'} type={'update'} onClick={() => navigate(`/forumedit/${dataId}`)}/>
 
                             <Buttons text={'삭제하기'} type={'delete'} onClick={handleRemove}/>
                         </div>

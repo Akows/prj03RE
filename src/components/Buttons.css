@@ -35,35 +35,35 @@
 }
 .linkbutton_write:hover {
     color: black;
-    background-color: white;
+    background-color: gray;
 }
 .linkbutton_write:active {
     color: red;
-    background-color: white;
+    background-color: gray;
 }
 
 .linkbutton_update {
     color: black;
-    background-color: yellow;
+    background-color: #6e6e6e;
 }
 .linkbutton_update:hover {
     color: black;
-    background-color: gray;
+    background-color: #d2d2d2;
 }
 .linkbutton_update:active {
-    color: white;
-    background-color: black;
+    color: red;
+    background-color: #d2d2d2;
 }
 
 .linkbutton_delete {
     color: black;
-    background-color: red;
+    background-color: #6e6e6e;
 }
 .linkbutton_delete:hover {
     color: black;
-    background-color: gray;
+    background-color: #d2d2d2;
 }
 .linkbutton_delete:active {
-    color: white;
-    background-color: black;
+    color: red;
+    background-color: #d2d2d2;
 }

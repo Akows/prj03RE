@@ -9,20 +9,22 @@ import Buttons from '../components/Buttons';
 
 const ForumEdit = () => {
 
-    const navigate = useNavigate();
-    const contentRef = useRef();
-
-    const { id } = useParams();
-
-    const [isEdit, setIsEdit] = useState(false);
-    const [titleData, setTitleData] = useState('');
-    const [maintextData, setMaintextData] = useState('');
-
     const { onCreate, onUpdate } = useContext(ForumFunctionContext);
     const forumdata = useContext(ForumDataContext);
 
+    const navigate = useNavigate();
+    const contentRef = useRef();
+
+    const { dataId } = useParams();
+
+    const [isEdit, setIsEdit] = useState(false);
+
+    const [itemType, setItemType] = useState('잡담');
+    const [titleData, setTitleData] = useState('');
+    const [textData, setTextData] = useState('');
+
     const submitEvent = () => {
-      if (titleData.length < 1 || maintextData.length < 1 ) {
+      if (titleData.length < 1 || textData.length < 1 ) {
         contentRef.current.focus();
         return;
       }
@@ -33,11 +35,11 @@ const ForumEdit = () => {
         )
       ) {
         if (!isEdit) {
-          onCreate(titleData, maintextData);
+          onCreate(itemType, titleData, textData);
           alert('작성되었습니다.');
         }
         else {
-          onUpdate(id, titleData, maintextData);
+          onUpdate(dataId, itemType, titleData, textData);
           alert('수정되었습니다.');
         } 
       }
@@ -51,23 +53,23 @@ const ForumEdit = () => {
     }, []);
 
     useEffect(() => {
-      if (id > 0) {
+      if (dataId > 0) {
         setIsEdit(true);
 
         const targetData  = forumdata.find(
-          (it) => parseInt(it.id) === parseInt(id)
+          (it) => parseInt(it.dataId) === parseInt(dataId)
         );
 
         if (targetData) {
           setTitleData(targetData.titleData);
-          setMaintextData(targetData.maintextData);
+          setTextData(targetData.textData);
         } 
         else {
             alert('존재하지 않는 글입니다.');
             navigate('/forum', { replace: true });
         }
       } // eslint-disable-next-line
-    }, [id, forumdata]);
+    }, [dataId, forumdata]);
 
     return (
         <>
@@ -75,6 +77,12 @@ const ForumEdit = () => {
 
                 <div className='editform'>
                     <div className='editlist'>
+
+                        <select className='edittype' onChange={(e) => setItemType(e.target.value)}>
+                          <option value='잡담'>잡담</option>
+                          <option value='질문'>질문</option>
+                          <option value='정보'>정보</option>
+                        </select>
 
                         <div className='edittitle'>
                             <textarea
@@ -90,8 +98,8 @@ const ForumEdit = () => {
                             <textarea
                                 placeholder='내용을 입력해주세요'
                                 ref={contentRef}
-                                value={maintextData}
-                                onChange={(e) => setMaintextData(e.target.value)}
+                                value={textData}
+                                onChange={(e) => setTextData(e.target.value)}
                                 />
 
                         </div>

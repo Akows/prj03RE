@@ -11,7 +11,6 @@ import ForumEdit from './pages/ForumEdit';
 import GameInfo from './pages/GameInfo';
 import WorldInfo from './pages/WorldInfo';
 import ForumItem from './pages/ForumItem';
-
 import { timeData } from './functions/Dates';
 
 export const ForumDataContext = React.createContext();
@@ -26,14 +25,16 @@ const reducer = (state, action) => {
     }
     case 'CREATE': {
       newState = [...state, action.data];
+      console.log(newState);
       break;
     }
     case 'UPDATE': {
-      newState = state.map((it) =>  parseInt(it.id) === parseInt(action.data.id) ? { ...action.data } : it);
+      newState = state.map((item) =>  parseInt(item.dataId) === parseInt(action.data.dataId) ? { ...action.data } : item);
+      console.log(newState);
       break;
     }
     case 'DELETE': {
-      newState = state.filter((item) => parseInt(item.id) !== parseInt(action.id));
+      newState = state.filter((item) => parseInt(item.dataId) !== parseInt(action.dataId));
       break;
     }
     default:
@@ -49,17 +50,15 @@ function App() {
   const [data, dispatch] = useReducer(reducer, []);
 
   useEffect(() => {
-    console.log(timeData());
-
     const localData = localStorage.getItem('forumdata');
 
     if (localData) {
       const forumList = JSON.parse(localData).sort(
-        (a, b) => parseInt(a.id) - parseInt(b.id)
+        (a, b) => parseInt(a.dataId) - parseInt(b.dataId)
       );
 
       if (forumList.length >= 1) {
-        forumId.current = parseInt(forumList[forumList.length - 1].id) + 1;
+        forumId.current = parseInt(forumList[forumList.length - 1].dataId) + 1;
         dispatch({ type: 'INIT', data: forumList });
       }
     }
@@ -67,27 +66,31 @@ function App() {
 
   const forumId = useRef(1);
 
-  const onCreate = (titleData, maintextData) => {
+  const onCreate = (itemType, titleData, textData) => {
     dispatch({
       type: 'CREATE',
       data: {
-        id: forumId.current,
-        date: new Date().toLocaleString('ko-kr'),
-        titleData,
-        maintextData,
+        dataId: forumId.current,
+        createDate: timeData(),
+        itemType: itemType,
+        authorName: '익명사용자',
+        titleData: titleData,
+        textData: textData,
       },
     });
     forumId.current += 1;
   };
 
-  const onUpdate = (targetId, titleData, maintextData) => {
+  const onUpdate = (targetId, itemType, titleData, textData) => {
     dispatch({
       type: 'UPDATE',
       data: {
-        id: targetId,
-        date: new Date().toLocaleString('ko-kr'),
-        titleData,
-        maintextData,
+        dataId: targetId,
+        createDate: timeData(),
+        itemType: itemType,
+        authorName: '익명사용자',
+        titleData: titleData,
+        textData: textData,
       },
     });
   };
@@ -95,7 +98,7 @@ function App() {
   const onDelete = (targetId) => {
     dispatch({ 
       type: 'DELETE', 
-      id: targetId 
+      dataId: targetId 
     });
   };
 
@@ -111,8 +114,8 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/forum' element={<Forum />} />
-                <Route path='/forumitem/:id' element={<ForumItem />} />
-                <Route path='/forumedit/:id' element={<ForumEdit />} />
+                <Route path='/forumitem/:dataId' element={<ForumItem />} />
+                <Route path='/forumedit/:dataId' element={<ForumEdit />} />
                 <Route path='/gameinfo' element={<GameInfo />} />
                 <Route path='/worldinfo' element={<WorldInfo />} />
               </Routes>   

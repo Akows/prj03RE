@@ -14,7 +14,7 @@ const Forum = () => {
 
     const forumList = useContext(ForumDataContext);
 
-    const id = 0;
+    const dataId = 0;
 
     const [currentPage, setCurrentPage] = useState(1);
     const [itemPerPage] = useState(10);
@@ -36,17 +36,18 @@ const Forum = () => {
                 <div className='forumform'>
                     <div className='forumlist'>
                         {currentItems.map((item) => (
-                            <div className='listitem' key={item.id} onClick={() => navigate(`/forumitem/${item.id}`)}>
+                            <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
                                 <div className='listitemdiv1'>
-                                    {item.id}
+                                    {item.dataId}
                                 </div>
                                 <div className='listitemdiv2'>
                                     <div className='listitemdiv3'>
                                         {item.titleData}
                                     </div>
                                     <div className='listitemdiv4'>
-                                        <div>익명사용자</div>
-                                        <div>{item.date}</div>
+                                        <div>{item.itemType}</div>
+                                        <div>{item.authorName}</div>
+                                        <div>{item.createDate}</div>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +63,7 @@ const Forum = () => {
                                 />
                         </div>
                         <div className='utilbutton'>
-                            <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate(`/forumedit/${id}`)}/>
+                            <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate(`/forumedit/${dataId}`)}/>
                         </div>
                     </div>
                 </div>
