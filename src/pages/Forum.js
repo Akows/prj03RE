@@ -29,9 +29,6 @@ const Forum = () => {
 
     const indexLastItem = currentPage * itemPerPage;
     const indexFirstItem = indexLastItem - itemPerPage;
-    
-    const firstList = forumList.slice(indexFirstItem, indexLastItem)
-    const [refresh, setRefresh] = useState(true);
 
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber);
@@ -41,36 +38,38 @@ const Forum = () => {
         const titleElement = document.getElementsByTagName('title')[0];
         titleElement.innerHTML = '자유게시판';
 
+        const localData = localStorage.getItem('forumdata');
+        const forums = JSON.parse(localData);
+
         const setList = () => {
-            setforumData(forumList);
-            setCurrentItems(forumList.slice(indexFirstItem, indexLastItem));
+            setforumData(forums);
+            setCurrentItems(forums.slice(indexFirstItem, indexLastItem));
         } 
 
-        setRefresh(false);
         setList(); // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
-        setRefresh(false);
         setCurrentItems(forumData.slice(indexFirstItem, indexLastItem));
     }, [indexFirstItem, indexLastItem, forumData]);
 
     const handleSearch = () => {
-        if (searchInput.length < 1 ) {
-            contentRef.current.focus();
-            return;
-        }
-
         let newList = [];
 
-        if (searchType === '종류') {
-            newList = forumList.filter((item) => item.itemType === searchInput);
+        if (searchInput.length < 1 ) {
+            contentRef.current.focus();
+            setCurrentItems(forumData.slice(indexFirstItem, indexLastItem));
         }
         else {
-            newList = forumList.filter((item) => item.titleData === searchInput);
-        }
+            if (searchType === '종류') {
+                newList = forumList.filter((item) => item.itemType === searchInput);
+            }
+            else {
+                newList = forumList.filter((item) => item.titleData === searchInput);
+            }
 
-        setCurrentItems(newList)
+            setCurrentItems(newList);
+        } 
     };
 
     return (
@@ -78,47 +77,23 @@ const Forum = () => {
             <div className='forum'>
                 <div className='forumform'>
                     <div className='forumlist'>
-                        {refresh ? 
-                            <>
-                                {firstList.map((item) => (
-                                    <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
-                                        <div className='listitemdiv1'>
-                                            {item.dataId}
-                                        </div>
-                                        <div className='listitemdiv2'>
-                                            <div className='listitemdiv3'>
-                                                {item.titleData}
-                                            </div>
-                                            <div className='listitemdiv4'>
-                                                <div>{item.itemType}</div>
-                                                <div>{item.authorName}</div>
-                                                <div>{item.createDate}</div>
-                                            </div>
-                                        </div>
+                        {currentItems.map((item) => (
+                            <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
+                                <div className='listitemdiv1'>
+                                    {item.dataId}
+                                </div>
+                                <div className='listitemdiv2'>
+                                    <div className='listitemdiv3'>
+                                        {item.titleData}
                                     </div>
-                                ))}
-                            </>
-                            : 
-                            <>
-                                 {currentItems.map((item) => (
-                                    <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
-                                        <div className='listitemdiv1'>
-                                            {item.dataId}
-                                        </div>
-                                        <div className='listitemdiv2'>
-                                            <div className='listitemdiv3'>
-                                                {item.titleData}
-                                            </div>
-                                            <div className='listitemdiv4'>
-                                                <div>{item.itemType}</div>
-                                                <div>{item.authorName}</div>
-                                                <div>{item.createDate}</div>
-                                            </div>
-                                        </div>
+                                    <div className='listitemdiv4'>
+                                        <div>{item.itemType}</div>
+                                        <div>{item.authorName}</div>
+                                        <div>{item.createDate}</div>
                                     </div>
-                                ))}                           
-                            </>
-                        }
+                                </div>
+                            </div>
+                        ))}   
                     </div>
 
                     <div className='forumbutton'>
