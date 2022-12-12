@@ -27,18 +27,11 @@ const reducer = (state, action) => {
       break;
     }
     case 'UPDATE': {
-      newState = state.map((it) => it.id === action.data.id ? { ...action.data } : it);
+      newState = state.map((it) =>  parseInt(it.id) === parseInt(action.data.id) ? { ...action.data } : it);
       break;
     }
     case 'DELETE': {
-
-      console.log(state);
-
-      console.log(state[0].id);
-      console.log(action.id);
-
-      newState = state.filter((item) => item.id !== action.id);
-
+      newState = state.filter((item) => parseInt(item.id) !== parseInt(action.id));
       break;
     }
     default:
