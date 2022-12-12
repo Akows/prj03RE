@@ -25,22 +25,16 @@ const reducer = (state, action) => {
     }
     case 'CREATE': {
       newState = [...state, action.data];
-      console.log(newState);
       break;
     }
     case 'UPDATE': {
       newState = state.map((item) =>  parseInt(item.dataId) === parseInt(action.data.dataId) ? { ...action.data } : item);
-      console.log(newState);
       break;
     }
     case 'DELETE': {
       newState = state.filter((item) => parseInt(item.dataId) !== parseInt(action.dataId));
       break;
     }
-    case 'SEARCH': {
-      return state.filter();
-    }
-
     default:
       return state;
   }
@@ -106,17 +100,9 @@ function App() {
     });
   };
 
-  const onSearch = (searchType, searchInput) => {
-    dispatch({ 
-      type: 'SEARCH', 
-      searchType: searchType,
-      searchInput: searchInput
-    });
-  };
-
   return (
     <ForumDataContext.Provider value={data}>
-      <ForumFunctionContext.Provider value={{ onCreate, onUpdate, onDelete, onSearch }}>
+      <ForumFunctionContext.Provider value={{ onCreate, onUpdate, onDelete }}>
         <BrowserRouter>
           <div className='App'>
             <div className='appbarcomponents'>
