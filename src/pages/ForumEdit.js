@@ -1,10 +1,11 @@
+import '../ResetStyle.css';
+import './ForumEdit.css';
+
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ForumDataContext, ForumFunctionContext } from '../App';
 
 import Buttons from '../components/Buttons';
-import '../ResetStyle.css';
-import './ForumEdit.css';
 
 const ForumEdit = () => {
 
@@ -45,7 +46,7 @@ const ForumEdit = () => {
 
 
     useEffect(() => {
-      const titleElement = document.getElementsByTagName("title")[0];
+      const titleElement = document.getElementsByTagName('title')[0];
       titleElement.innerHTML = '글 작성/수정';
     }, []);
 

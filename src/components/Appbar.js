@@ -1,9 +1,9 @@
 import '../ResetStyle.css';
 import './Appbar.css';
 
-import Buttons from './Buttons';
-
 import { Link } from 'react-router-dom';
+
+import Buttons from './Buttons';
 
 const Appbar = () => {
     return (
@@ -15,7 +15,6 @@ const Appbar = () => {
             </Link>
 
                 <div className='appbarmenu'>
-
                     <Link to='/forum'>
                         <Buttons text={'자유게시판'}/>
                     </Link> 
@@ -30,10 +29,10 @@ const Appbar = () => {
                 </div>
 
                 <div className='appbarmenusmall'>
-                    <ul class="slidemenu">
+                    <ul className='slidemenu'>
                         <li>
-                            메뉴 이름
-                            <ul class="submenu">
+                            <p className='slidemenuicon'>&#9776;</p>
+                            <ul className='submenu'>
                                 <Link to='/forum'>
                                     <li>
                                     Forum

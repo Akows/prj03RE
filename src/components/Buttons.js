@@ -1,3 +1,4 @@
+import '../ResetStyle.css';
 import './Buttons.css';
 
 const Buttons = ( { text, type, onClick } ) => {

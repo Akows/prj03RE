@@ -1,9 +1,11 @@
+import '../ResetStyle.css';
+import './ForumItem.css';
+
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ForumDataContext, ForumFunctionContext } from '../App';
+
 import Buttons from '../components/Buttons';
-import '../ResetStyle.css';
-import './ForumItem.css';
 
 const ForumItem = () => {
 

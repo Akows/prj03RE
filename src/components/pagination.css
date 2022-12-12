@@ -1,0 +1,28 @@
+.paganation-outer {
+    margin: 20px;
+}
+
+.paganation-btu {
+    display: inline-flex;
+}
+
+.paganation-button {
+    width: 30px;
+    height: 30px;
+
+    margin: 2px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: black;
+    color: white;
+}
+.paganation-button:hover {
+    background-color: white;
+    color: black;
+}
+.paganation-button:active {
+    background-color: black;
+    color: red;
+}

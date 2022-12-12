@@ -30,16 +30,16 @@
 }
 
 .linkbutton_write {
-    color: black;
-    background-color: forestgreen;
+    color: white;
+    background-color: black;
 }
 .linkbutton_write:hover {
     color: black;
-    background-color: gray;
+    background-color: white;
 }
 .linkbutton_write:active {
-    color: white;
-    background-color: black;
+    color: red;
+    background-color: white;
 }
 
 .linkbutton_update {
