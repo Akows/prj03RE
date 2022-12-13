@@ -166,3 +166,67 @@
         height: 10%;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .pagenation {
+        width: 250px;
+    }
+    .searchinput {
+        width: 100px;
+    }
+    .utilbutton {
+        width: 80px;
+    }
+    .listitem {
+        height: 90px;
+    }
+    .listitemdiv1 {
+        width: 12%;
+    }
+    .listitemdiv2 {
+        width: 88%;
+    }
+    .listitemdiv3 {
+        font-size: 20px;
+    }
+    .listitemdiv4 {
+        margin-top: 10px;
+        font-size: 15px;
+    }
+    .listitemdiv4 > div {
+        margin-right: 5px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .listitemdiv3 {
+        font-size: 15px;
+    }
+    .listitemdiv4 {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .pagenation {
+        width: 180px;
+    }
+    .searchinput {
+        width: 50px;
+    }
+    .utilbutton {
+        width: 50px;
+    }
+    .utilbutton > div {
+        font-size: 12px;
+    }
+    .listitemdiv4 {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .listitemdiv4 {
+        font-size: 10.5px;
+    }
+}
