@@ -1,6 +1,17 @@
+@keyframes FadeUp {
+    0% {
+        opacity: 0;
+        transform: translate3d(0, 15%, 0);
+    }
+    100% {
+        opacity: 1;
+        transform: translateZ(0);
+    }
+}
+
 .home {
     width: 100%;
-    height: 100vh;
+    height: 1600px;
 
     margin: 80px 0 0 0;
 
@@ -12,27 +23,109 @@
     flex-direction: row;
     justify-content: center;
 
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
-.text {
+.homecontents {
     width: 100%;
     height: 100%;
 
     position: absolute;
+}
+
+.maintext {
+    width: 100%;
+    height: 800px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    margin-top: 200px;
+    margin-top: -200px;
 
     font-family: 'genshinfont';
 }
+.paimon {
+    width: 100%;
+    height: 100%;
 
-.text > p {
-    font-size: 70px;
+    display: none;
+
+    background-image: url('../styles/paimon.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    animation: FadeUp 1s;
 }
+
+.maintext > p {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.maintext2 > p {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.mainfooter {
+    width: 100%;
+    height: 200px;
+
+    margin-top: 0px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+.mainfooter > span {
+    width: 180px;
+    height: 60px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0px 0px;
+
+    margin: 5px;
+}
+    .footerbtn1 {
+        background-image: url('../styles/window.png');
+    }
+    .footerbtn2 {
+        background-image: url('../styles/google.png');
+    }
+    .footerbtn3 {
+        background-image: url('../styles/apple.png');
+    }
+    .footerbtn4 {
+        background-image: url('../styles/sony.png');
+    }
+
+    .footerbtn1:hover {
+        background-image: url('../styles/window\(black\).png');
+    }
+    .footerbtn2:hover {
+        background-image: url('../styles/google\(black\).png');
+    }
+    .footerbtn3:hover {
+        background-image: url('../styles/apple\(black\).png');
+    }
+    .footerbtn4:hover {
+        background-image: url('../styles/sony\(black\).png');
+        background-size: 170px 60px;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 1000px) {
     .home {
@@ -44,5 +137,24 @@
         background-image: url('../styles/TravelerCelestial.jpg');
         background-size: cover;
         background-position: center;
+    }
+    .maintext {
+        display: none;
+    }
+    .paimon {
+        display: block;
+    }
+    .mainfooter {
+        height: 500px;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-height: 400px) {
+    .paimon {
+        width: 100%;
+        height: 100%;
+    
+        background-size: 280px 350px;
     }
 }
