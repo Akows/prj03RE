@@ -3,7 +3,7 @@ import './Buttons.css';
 
 const Buttons = ( { text, type, onClick } ) => {
 
-    const buttonType =  ['write', 'update', 'delete'].includes(type) ? type : 'default';
+    const buttonType =  ['upper', 'write', 'update', 'delete'].includes(type) ? type : 'default';
 
     return (
         <>

@@ -29,17 +29,28 @@
     background-color: black;
 }
 
+.linkbutton_upper {
+    color: white;
+    background-color: black;
+}
+.linkbutton_upper:hover {
+    color: gray;
+}
+.linkbutton_upper:active {
+    color: red;
+}
+
 .linkbutton_write {
     color: white;
     background-color: black;
 }
 .linkbutton_write:hover {
     color: black;
-    background-color: gray;
+    background-color: white;
 }
 .linkbutton_write:active {
     color: red;
-    background-color: gray;
+    background-color: white;
 }
 
 .linkbutton_update {

@@ -17,15 +17,15 @@ const Appbar = () => {
 
                 <div className='appbarmenu'>
                     <Link to='/forum'>
-                        <Buttons text={'자유게시판'}/>
+                        <Buttons text={'자유게시판'} type={'upper'}/>
                     </Link> 
 
                     <Link to='/gameinfo'>
-                        <Buttons text={'원신'}/>
+                        <Buttons text={'원신'} type={'upper'}/>
                     </Link> 
 
                     <Link to='/worldinfo'>
-                        <Buttons text={'티바트'}/>
+                        <Buttons text={'티바트'} type={'upper'}/>
                     </Link> 
                 </div>
 
