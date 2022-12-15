@@ -14,7 +14,7 @@
 }
 
 .forumform {
-    width: 80%;
+    width: 1200px;
     height: 1200px;
 
     margin-top: 20px;
@@ -153,6 +153,12 @@
     justify-content: center;
 }
 
+@media screen and (max-width: 1200px) {
+    .forumform {
+        width: 80%;
+    }
+}
+
 @media screen and (max-width: 800px) {
     .forum {
         height: 1200px;
@@ -161,12 +167,11 @@
         background-size: cover;
         background-position: center;
     }
-
 }
 
 @media screen and (max-width: 700px) {
     .forumform {
-        width: 100%;
+        width: 90%;
         height: 100%;
 
         flex-direction: column-reverse;
