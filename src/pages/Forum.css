@@ -11,7 +11,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
 }
 
 .forumform {
@@ -37,6 +36,13 @@
     margin-top: 50px;
 
     border-radius: 30px;
+}
+.listempty {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 30px;
+
+    font-family: 'genshinfont';
 }
 
 .listitem {
@@ -103,6 +109,12 @@
     width: 90%;
     height: 120px;
 }
+    .listempty2 {
+        margin-left: 30px;
+        margin-top: 20px;
+        text-align: left;
+        height: 50px;
+    }
     .forumsearch {
         display: flex;
         flex-direction: row;

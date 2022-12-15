@@ -87,7 +87,7 @@ const GameInfo = () => {
                 <div className='infologo' ref={point4}/>
 
                 <div className='gameintroduce'>
-
+                    
                 </div>
 
             </div>

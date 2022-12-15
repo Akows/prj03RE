@@ -41,16 +41,20 @@ const Forum = () => {
         const localData = localStorage.getItem('forumdata');
         const forums = JSON.parse(localData);
 
-        const setList = () => {
-            setforumData(forums);
-            setCurrentItems(forums.slice(indexFirstItem, indexLastItem));
-        } 
-
-        setList(); // eslint-disable-next-line
+        if(forums) {
+            const setList = () => {
+                setforumData(forums);
+                setCurrentItems(forums.slice(indexFirstItem, indexLastItem));
+            } 
+    
+            setList();
+        } // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
-        setCurrentItems(forumData.slice(indexFirstItem, indexLastItem));
+        if (forumData.length !== 0) {
+            setCurrentItems(forumData.slice(indexFirstItem, indexLastItem));
+        }
     }, [indexFirstItem, indexLastItem, forumData]);
 
     const handleSearch = () => {
@@ -77,41 +81,56 @@ const Forum = () => {
             <div className='forum'>
                 <div className='forumform'>
                     <div className='forumlist'>
-                        {currentItems.map((item) => (
-                            <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
-                                <div className='listitemdiv1'>
-                                    {item.dataId}
-                                </div>
-                                <div className='listitemdiv2'>
-                                    <div className='listitemdiv3'>
-                                        {item.titleData}
+                        {forumData.length !== 0 ?
+                            <>
+                                {currentItems.map((item) => (
+                                    <div className='listitem' key={item.dataId} onClick={() => navigate(`/forumitem/${item.dataId}`)}>
+                                        <div className='listitemdiv1'>
+                                            {item.dataId}
+                                        </div>
+                                        <div className='listitemdiv2'>
+                                            <div className='listitemdiv3'>
+                                                {item.titleData}
+                                            </div>
+                                            <div className='listitemdiv4'>
+                                                <div>{item.itemType}</div>
+                                                <div>{item.authorName}</div>
+                                                <div>{item.createDate}</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div className='listitemdiv4'>
-                                        <div>{item.itemType}</div>
-                                        <div>{item.authorName}</div>
-                                        <div>{item.createDate}</div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}   
+                                ))}   
+                            </>
+                            :
+                            <div className='listempty'>
+                                게시판에 글이 없습니다.
+                            </div>               
+                        }
                     </div>
 
                     <div className='forumbutton'>
                         <div className='pagenation'>
-                            <Pagination
-                                postsPerPage={itemPerPage}
-                                totalPosts={forumList.length}
-                                paginate={paginate}
-                            />
-
-                        <div className='forumsearch'>
-                            <Search
-                                setSearchType={setSearchType}
-                                setSearchInput={setSearchInput}
-                                handleSearch={handleSearch}
-                                contentRef={contentRef}
-                            />
-                        </div>
+                            {forumData.length !== 0  ? 
+                                <>
+                                    <Pagination
+                                        postsPerPage={itemPerPage}
+                                        totalPosts={forumList.length}
+                                        paginate={paginate}
+                                    />
+                                </>
+                                :
+                                <div className='listempty2'>
+                                    게시판에 글이 없습니다.
+                                </div> 
+                            }
+                            <div className='forumsearch'>
+                                <Search
+                                    setSearchType={setSearchType}
+                                    setSearchInput={setSearchInput}
+                                    handleSearch={handleSearch}
+                                    contentRef={contentRef}
+                                />
+                            </div>
                         </div>
                         <div className='utilbutton'>
                             <Buttons text={'글쓰기'} type={'write'} onClick={() => navigate(`/forumedit/${dataId}`)}/>
