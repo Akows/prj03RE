@@ -54,7 +54,7 @@ const ForumItem = () => {
                     <div className='itemlist'>
 
                         <div className='itemtype'>
-                            {data.itemType}
+                            &nbsp;&nbsp;&nbsp;&nbsp;{data.itemType}
                             <button onClick={() => navigate(-1)} className='backbutton'>뒤로가기</button>
                         </div>
 

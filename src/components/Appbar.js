@@ -36,17 +36,17 @@ const Appbar = () => {
                             <ul className='submenu'>
                                 <Link to='/forum'>
                                     <li>
-                                    Forum
+                                        자유게시판
                                     </li>
                                 </Link> 
                                 <Link to='/gameinfo'>
                                     <li>
-                                    gameinfo
+                                        원신
                                     </li>
                                 </Link> 
                                 <Link to='/worldinfo'>
                                     <li>
-                                    worldinfo
+                                        티바트
                                     </li>
                                 </Link> 
                             </ul>   

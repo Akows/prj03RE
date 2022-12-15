@@ -27,6 +27,9 @@ const Home = () => {
             <div className='home'/>
 
             <div className='homecontents'>
+
+                <div className='homelogo'/>
+
                 <div className='maintext'>
                     <p>《원신》은 게임 개발사 미호요가 개발한 오픈 월드 어드벤처 게임입니다.</p>
                     <p>이 원소의 힘으로 가득 찬 판타지 대륙 「티바트」에는 </p>

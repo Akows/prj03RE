@@ -61,11 +61,31 @@
     visibility: hidden;
 }
 
+.gamelogo {
+    width: 100%;
+    height: 600px;
+
+    background-image: url('../styles/2.7maintitle.png');
+    background-size: 800px 300px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.trailerlogo {
+    width: 100%;
+    height: 200px;
+
+    margin-top: 500px;
+
+    background-image: url('../styles/playbtuconti.png');
+    background-size: 600px 120px;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 .gametrailer {
     width: 60%;
     height: 500px;
-
-    margin-top: 1400px;
 
     display: flex;
     flex-direction: column;

@@ -31,6 +31,18 @@
     height: 100%;
 
     position: absolute;
+
+    top: 100px;
+}
+
+.homelogo {
+    width: 100%;
+    height: 550px;
+
+    background-image: url('../styles/Genshinlogo.png');
+    background-size: 800px 300px;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .maintext {
@@ -135,6 +147,12 @@
         background-image: url('../styles/TravelerCelestial.jpg');
         background-size: cover;
         background-position: center;
+    }
+    .homelogo {
+        width: 100%;
+        height: 250px;
+
+        background-size: 550px 200px;
     }
     .maintext {
         display: none;
