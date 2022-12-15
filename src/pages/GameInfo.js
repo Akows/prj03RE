@@ -73,7 +73,15 @@ const GameInfo = () => {
                 <div className='slideslogo' ref={point3}/>
 
                 <div className='gameslides'>
-                    <Sildeshow/>
+                    <div className='slideshow'>
+                        <Sildeshow/>
+                    </div>
+                    
+                    <div className='gameslidesimg img1'/>
+                    <div className='gameslidesimg img2'/>
+                    <div className='gameslidesimg img3'/>
+                    <div className='gameslidesimg img4'/>
+                    <div className='gameslidesimg img5'/>
                 </div>
 
                 <div className='infologo' ref={point4}/>
