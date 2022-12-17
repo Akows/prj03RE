@@ -47,14 +47,12 @@ const GameInfo = () => {
             <div className='gameinfo'>
 
                 <div className={['gameinforemote', `remoteOn_${remoteOn}`].join(' ')}>
-                    <div onClick={moveTo1}>
-                        로고
-                    </div>
+                    <div className='remotebtu1' onClick={moveTo1}/>
                     <div onClick={moveTo2}>
                         트레일러
                     </div>
                     <div onClick={moveTo3}>
-                        버전정보
+                        게임특징
                     </div>
                     <div onClick={moveTo4}>
                         원신
@@ -76,7 +74,6 @@ const GameInfo = () => {
                     <div className='slideshow'>
                         <Sildeshow/>
                     </div>
-                    
                     <div className='gameslidesimg img1'/>
                     <div className='gameslidesimg img2'/>
                     <div className='gameslidesimg img3'/>
@@ -84,10 +81,11 @@ const GameInfo = () => {
                     <div className='gameslidesimg img5'/>
                 </div>
 
-                <div className='infologo' ref={point4}/>
-
-                <div className='gameintroduce'>
-                    
+                <div className='gameintroduce'  ref={point4}>
+                    <div className='gameinfo1'/>
+                    <div className='gameinfo2'/>
+                    <div className='gameinfo3'/>
+                    <div className='gameinfo4'/>
                 </div>
 
             </div>
