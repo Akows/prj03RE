@@ -1,7 +1,6 @@
 import '../ResetStyle.css';
 import './Banner.css';
 
-
 const Banner = ({ type, name }) => {
 
     const bannerType = ['mond', 'liyue', 'inazuma'].includes(type) ? type : '';
