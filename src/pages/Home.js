@@ -1,12 +1,17 @@
 import '../ResetStyle.css';
 import './Home.css';
 
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 const Home = () => {
+
+    const topPoint = useRef();
+
     useEffect(() => {
         const titleElement = document.getElementsByTagName('title')[0];
         titleElement.innerHTML = '원신프로젝트';
+
+        topPoint.current.scrollIntoView({behavior: 'smooth'});
     }, []);
 
     const moveSony = () => {
@@ -24,7 +29,7 @@ const Home = () => {
 
     return (
         <>
-            <div className='home'/>
+            <div className='home' ref={topPoint}/>
 
             <div className='homecontents'>
 

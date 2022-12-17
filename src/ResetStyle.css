@@ -58,5 +58,5 @@ table {
 
 /* 개인적으로 추가한 CSS, HTML의 하위 자식 요소의 가로 길이가 부모 요소를 초과하였을 때, 초과한 부분을 자동으로 제거하는 속성 */
 html, body { 
-	overflow-x: hidden;
+	overflow-x: hidden;	
 }

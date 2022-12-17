@@ -11,7 +11,7 @@
 
 .home {
     width: 100%;
-    height: 2600px;
+    height: 100vh;
 
     margin: 80px 0 0 0;
 
@@ -28,7 +28,7 @@
 
 .homecontents {
     width: 100%;
-    height: 100%;
+    height: 1000px;
 
     position: absolute;
 
@@ -47,7 +47,7 @@
 
 .maintext {
     width: 100%;
-    height: 800px;
+    height: 300px;
 
     display: flex;
     flex-direction: column;
@@ -73,14 +73,10 @@
     font-size: 30px;
     margin-bottom: 30px;
 }
-.maintext2 > p {
-    font-size: 30px;
-    margin-bottom: 30px;
-}
 
 .mainfooter {
     width: 100%;
-    height: 200px;
+    height: 100px;
 
     margin-top: 0px;
 
@@ -126,31 +122,22 @@
         background-size: 170px 60px;
     }
 
-
-
-
-
-
-
-
-
-
-
-
 @media screen and (max-width: 1000px) {
     .home {
         width: 100%;
-        height: 2100px;
-
-        margin: 80px 0 0 0;
-
+        height: 100vh;
+        
         background-image: url('../styles/TravelerCelestial.jpg');
-        background-size: cover;
-        background-position: center;
+    }
+    .homecontents {
+        width: 100%;
+        height: 700px;
+
+        top: 100px;
     }
     .homelogo {
         width: 100%;
-        height: 250px;
+        height: 220px;
 
         background-size: 550px 200px;
     }
@@ -158,52 +145,144 @@
         display: none;
     }
     .paimon {
+        width: 100%;
+        height: 55%;
+    
         display: block;
+    
+        background-size: 300px 380px;
     }
     .mainfooter {
-        height: 500px;
+        height: 400px;
         flex-direction: column;
     }
 }
 
 @media screen and (max-width: 500px) {
-    .homelogo {
+    .home {
         width: 100%;
-        height: 150px;
-
-        background-size: 350px 130px;
+        height: 100vh;
+        
+        background-image: url('../styles/TravelerCelestial.jpg');
+    }
+    .homecontents {
+        height: 350px;
+    }
+    .homelogo {
+        height: 180px;
+        background-size: 360px 150px;
     }
     .paimon {
-        width: 100%;
         height: 100%;
-        background-size: 450px 620px;
+        background-size: 300px 350px;
+    }
+    .mainfooter {
+        height: 200px;
+        flex-direction: column;
+    }
+    .mainfooter > span {
+        width: 150px;
+        height: 50px;
+        margin: 2px;
     }
 }
 
 @media screen and (max-height: 800px) {
+    .home {
+        width: 100%;
+        height: 100vh;
+    }
+    .homecontents {
+        width: 100%;
+        height: 300px;
+
+        top: 100px;
+    }
+    .homelogo {
+        width: 100%;
+        height: 200px;
+
+        margin-bottom: 0px;
+
+        background-size: 350px 150px;
+    }
+    .paimon {
+        height: 100%;
+        background-size: 250px 280px;
+    }
+    .maintext {
+        width: 100%;
+        height: 220px;
+
+        margin-bottom: 70px;
+    }
+    .maintext > p {
+        font-size: 25px;
+        margin-bottom: 30px;
+    }
+}
+
+@media screen and (max-height: 700px) {
+    .home {
+        width: 100%;
+        height: 100vh;
+    }
+    .homecontents {
+        width: 100%;
+        height: 130px;
+
+        top: 100px;
+    }
+    .homelogo {
+        width: 100%;
+        height: 200px;
+
+        margin-bottom: 0px;
+
+        background-size: 250px 110px;
+    }
+    .paimon {
+        display: none;
+    }
+    .mainfooter {
+        height: 300px;
+        flex-direction: column;
+    }
+    .mainfooter > span {
+        width: 180px;
+        height: 58px;
+        margin: 2px;
+    }
+
+}
+
+@media screen and (max-height: 500px) {
+    .home {
+        width: 100%;
+        height: 100vh;
+    }
+    .homecontents {
+        width: 100%;
+        height: 150px;
+
+        top: 75px;
+    }
     .homelogo {
         width: 100%;
         height: 150px;
 
+        margin-bottom: 30px;
+
         background-size: 350px 130px;
     }
-    .paimon {
-        width: 100%;
-        height: 100%;
-        background-size: 450px 620px;
+    .mainfooter {
+        height: 100px;
+        flex-direction: row;
     }
-}
+    .mainfooter > span {
+        width: 120px;
+        height: 40px;
+        margin: 2px;
+    }
 
-@media screen and (max-height: 500px) {
-    .homelogo {
-        width: 100%;
-        height: 180px;
-
-        background-size: 320px 120px;
-    }
-    .paimon {
-        width: 100%;
-        height: 100%;
-        background-size: 260px 330px;
-    }
 }
