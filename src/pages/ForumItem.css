@@ -15,7 +15,7 @@
 }
 
 .itemform {
-    width: 80%;
+    width: 1200px;
     height: 70%;
 
     background-color: white;
@@ -135,4 +135,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .itemform {
+        width: 90%;
+    }
 }

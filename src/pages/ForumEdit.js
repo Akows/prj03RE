@@ -93,7 +93,6 @@ const ForumEdit = () => {
                                 />
                         </div>
 
-
                         <div className='edittext'>
                             <textarea
                                 placeholder='내용을 입력해주세요'
@@ -101,9 +100,7 @@ const ForumEdit = () => {
                                 value={textData}
                                 onChange={(e) => setTextData(e.target.value)}
                                 />
-
                         </div>
-
                     </div>
 
                     <div className='editbutton'>

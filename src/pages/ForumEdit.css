@@ -1,6 +1,6 @@
 .edit {
     width: 100%;
-    height: 1500px;
+    height: 100vh;
 
     margin: 80px 0 0 0;
 
@@ -15,8 +15,8 @@
 }
 
 .editform {
-    width: 80%;
-    height: 60%;
+    width: 1200px;
+    height: 900px;
 
     background-color: white;
     border-radius: 60px;
@@ -96,11 +96,6 @@
         padding: 30px;
     }
 
-
-
-
-
-
 .editbutton {
     width: 90%;
     height: 15%;
@@ -120,4 +115,59 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+@media screen and (max-width: 1200px) {
+    .editform {
+        width: 90%;
+        height: 90%;
+    }
+    .edittype {
+        height: 10%;
+    }
+    .edittitle {
+        height: 25%;
+    }
+    .edittext {
+        height: 55%;
+    }
+    .editlist {
+        height: 60%;
+        margin-top: 20px;
+    }
+    .editbutton {
+        height: 30%;
+        margin-top: 0px;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .editform {
+        width: 90%;
+        height: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .editform {
+        width: 90%;
+        height: 70%;
+    }
+    .edittype {
+        height: 10%;
+    }
+    .edittitle {
+        height: 20%;
+    }
+    .edittext {
+        height: 70%;
+    }
+    .editlist {
+        height: 70%;
+        margin-top: 20px;
+    }
+    .editbutton {
+        height: 30%;
+        margin-top: 0px;
+    }
 }
