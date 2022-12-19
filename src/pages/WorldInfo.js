@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import Banner from '../components/Banner';
 
 const WorldInfo = () => {
+    
     useEffect(() => {
         const titleElement = document.getElementsByTagName('title')[0];
         titleElement.innerHTML = '티바트';

@@ -2,6 +2,7 @@ import '../ResetStyle.css';
 import './GameInfo.css';
 
 import { useEffect, useRef, useState } from 'react';
+
 import Sildeshow from '../components/Sildeshow';
 
 const GameInfo = () => {
