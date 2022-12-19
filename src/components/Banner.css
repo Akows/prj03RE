@@ -74,39 +74,39 @@
     width: 256px;
     height: 256px;
 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     animation: FadeUp 1s;
 }
-.bannerlogo_mond {
-    background-image: url('../styles/Emblem_Mondstadt.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.bannerlogo_liyue {
-    background-image: url('../styles/Emblem_Liyue.webp');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-.bannerlogo_inazuma {
-    background-image: url('../styles/Emblem_Inazuma.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+    .bannerlogo_mond {
+        background-image: url('../styles/Emblem_Mondstadt.webp');
+    }
+    .bannerlogo_liyue {
+        background-image: url('../styles/Emblem_Liyue.webp');
+    }
+    .bannerlogo_inazuma {
+        background-image: url('../styles/Emblem_Inazuma.png');
+    }
 
 .cityinfo {
     width: 100%;
     height: 500px;
 
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    font-size: 20px;
+    font-size: 25px;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 
     font-family: 'genshinfont';
     color: white;
+
+    text-align: center;
 }
+    .cityinfo_true {
+        display: flex;
+    }
